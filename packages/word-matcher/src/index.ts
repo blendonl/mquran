@@ -1,0 +1,1 @@
+export { WordMatcher } from './WordMatcher';

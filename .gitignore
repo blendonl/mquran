@@ -137,3 +137,40 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# React Native / Mobile
+.expo/
+.expo-shared/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Android
+apps/mobile/android/build/
+apps/mobile/android/app/build/
+apps/mobile/android/.gradle/
+apps/mobile/android/local.properties
+apps/mobile/android/.idea/
+apps/mobile/android/*.iml
+apps/mobile/android/.cxx/
+
+# iOS
+apps/mobile/ios/Pods/
+apps/mobile/ios/build/
+apps/mobile/ios/*.xcworkspace
+!apps/mobile/ios/*.xcworkspace/contents.xcworkspacedata
+apps/mobile/ios/*.xcuserstate
+
+# ML Models (too large for git - download separately)
+apps/mobile/android/app/src/main/assets/models/*.onnx
+apps/mobile/ios/assets/models/*.onnx
+
+# Quran Data (download separately)
+packages/quran-data/data/quran.json
+
+# Turbo
+.turbo/

@@ -1,0 +1,30 @@
+{
+  "name": "mquran",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "mobile": "yarn workspace @mquran/mobile start",
+    "backend": "yarn workspace @mquran/backend start:dev",
+    "mobile:android": "yarn workspace @mquran/mobile android",
+    "mobile:ios": "yarn workspace @mquran/mobile ios"
+  },
+  "devDependencies": {
+    "turbo": "^1.11.2",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.0"
+  },
+  "packageManager": "yarn@1.22.19"
+}
