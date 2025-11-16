@@ -1,9 +1,16 @@
+pluginManagement {
+    def nodeModulesPath = file("../../../node_modules")
+    includeBuild(new File(nodeModulesPath, "@react-native/gradle-plugin"))
+}
+
+plugins {
+    id("com.facebook.react.settings")
+}
+
+extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
+    ex.autolinkLibrariesFromCommand()
+}
+
 rootProject.name = 'MQuran'
 
 include ':app'
-
-// Monorepo: Use root node_modules instead of app-level node_modules
-def nodeModulesPath = new File(rootProject.projectDir, "../../../node_modules")
-
-// Include React Native Gradle Plugin
-includeBuild(new File(nodeModulesPath, "@react-native/gradle-plugin"))
