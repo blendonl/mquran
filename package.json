@@ -18,8 +18,8 @@
     "mobile:ios": "yarn workspace @mquran/mobile ios"
   },
   "devDependencies": {
-    "turbo": "^1.11.2",
     "prettier": "^3.1.1",
+    "turbo": "^1.11.2",
     "typescript": "^5.3.3"
   },
   "engines": {
