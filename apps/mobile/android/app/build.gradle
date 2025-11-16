@@ -81,8 +81,4 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-
-    debugImplementation("com.facebook.flipper:flipper:0.250.0")
-    debugImplementation("com.facebook.flipper:flipper-network-plugin:0.250.0")
-    debugImplementation("com.facebook.flipper:flipper-fresco-plugin:0.250.0")
 }
