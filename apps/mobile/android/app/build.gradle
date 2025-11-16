@@ -2,13 +2,15 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+// Monorepo: Point to root instead of app-level
 def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
+def monorepoRoot = new File(projectRoot, "../..").getCanonicalPath()
 
 react {
-    entryFile = file(["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute(null, rootDir).text.trim())
-    reactNativeDir = file("$projectRoot/node_modules/react-native")
-    codegenDir = file("$projectRoot/node_modules/@react-native/codegen")
-    cliFile = file("$projectRoot/node_modules/react-native/cli.js")
+    entryFile = file("$projectRoot/index.js")
+    reactNativeDir = file("$monorepoRoot/node_modules/react-native")
+    codegenDir = file("$monorepoRoot/node_modules/@react-native/codegen")
+    cliFile = file("$monorepoRoot/node_modules/react-native/cli.js")
 }
 
 android {

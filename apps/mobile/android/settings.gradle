@@ -1,7 +1,9 @@
 rootProject.name = 'MQuran'
 
-apply from: file("../node_modules/@react-native/gradle-plugin/scripts/autolinking.gradle")
-useReactNativeAutolinking()
-
 include ':app'
-includeBuild('../node_modules/@react-native/gradle-plugin')
+
+// Monorepo: Use root node_modules instead of app-level node_modules
+def nodeModulesPath = new File(rootProject.projectDir, "../../../node_modules")
+
+// Include React Native Gradle Plugin
+includeBuild(new File(nodeModulesPath, "@react-native/gradle-plugin"))
