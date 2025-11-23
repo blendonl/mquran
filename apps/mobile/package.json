@@ -3,12 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "lint": "eslint .",
-    "start": "node scripts/start-metro.js",
+    "start": "expo start",
     "start:default": "react-native start",
-    "test": "jest"
+    "start:metro": "node scripts/start-metro.js",
+    "test": "jest",
+    "build:android": "expo build:android",
+    "build:ios": "expo build:ios"
   },
   "dependencies": {
     "@mquran/asr-service": "*",
@@ -16,6 +19,7 @@
     "@mquran/word-matcher": "*",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.20",
+    "expo": "^54.0.25",
     "react": "18.3.1",
     "react-native": "0.76.1",
     "react-native-gesture-handler": "^2.14.1",
