@@ -13,20 +13,18 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.3.0")
-        classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 
-apply plugin: "com.facebook.react.rootproject"
-
 allprojects {
     repositories {
         maven {
-            url("$rootDir/../node_modules/react-native/android")
+            // Monorepo: Point to root node_modules
+            url("$rootDir/../../../node_modules/react-native/android")
         }
         maven {
-            url("$rootDir/../node_modules/jsc-android/dist")
+            url("$rootDir/../../../node_modules/jsc-android/dist")
         }
         google()
         mavenCentral()

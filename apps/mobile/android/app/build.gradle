@@ -1,17 +1,9 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
-apply plugin: "com.facebook.react"
 
-// Monorepo: Point to root instead of app-level
-def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
-def monorepoRoot = new File(projectRoot, "../..").getCanonicalPath()
-
-react {
-    entryFile = file("$projectRoot/index.js")
-    reactNativeDir = file("$monorepoRoot/node_modules/react-native")
-    codegenDir = file("$monorepoRoot/node_modules/@react-native/codegen")
-    cliFile = file("$monorepoRoot/node_modules/react-native/cli.js")
-}
+// Expo autolinking
+apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle")
+useExpoModules()
 
 android {
     ndkVersion rootProject.ext.ndkVersion
@@ -21,7 +13,7 @@ android {
     namespace "com.mquran"
 
     defaultConfig {
-        applicationId "com.mquran"
+        applicationId "com.mquran.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -1,20 +1,7 @@
-pluginManagement {
-    def nodeModulesPath = new File(rootProject.projectDir, "../../../node_modules")
-    includeBuild(new File(nodeModulesPath, "@react-native/gradle-plugin"))
-}
-
-plugins {
-    id("com.facebook.react.settings")
-}
-
-extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
-    ex.autolinkLibrariesFromCommand()
-}
-
 rootProject.name = 'MQuran'
 
-include ':app'
+// Expo autolinking for monorepo
+apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle")
+useExpoModules()
 
-// Monorepo: Point to root node_modules
-def nodeModulesPath = new File(rootProject.projectDir, "../../../node_modules")
-includeBuild(new File(nodeModulesPath, "@react-native/gradle-plugin"))
+include ':app'
