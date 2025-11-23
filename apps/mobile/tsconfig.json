@@ -4,12 +4,25 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@mquran/quran-data": ["../../packages/quran-data/src"],
-      "@mquran/asr-service": ["../../packages/asr-service/src"],
-      "@mquran/word-matcher": ["../../packages/word-matcher/src"]
+      "@/*": [
+        "src/*"
+      ],
+      "@mquran/quran-data": [
+        "../../packages/quran-data/src"
+      ],
+      "@mquran/asr-service": [
+        "../../packages/asr-service/src"
+      ],
+      "@mquran/word-matcher": [
+        "../../packages/word-matcher/src"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
