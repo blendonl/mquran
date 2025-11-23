@@ -15,7 +15,8 @@
     "mobile": "yarn workspace @mquran/mobile start",
     "backend": "yarn workspace @mquran/backend start:dev",
     "mobile:android": "yarn workspace @mquran/mobile android",
-    "mobile:ios": "yarn workspace @mquran/mobile ios"
+    "mobile:ios": "yarn workspace @mquran/mobile ios",
+    "mobile:web": "yarn workspace @mquran/mobile web"
   },
   "resolutions": {
     "metro": "^0.80.12",
