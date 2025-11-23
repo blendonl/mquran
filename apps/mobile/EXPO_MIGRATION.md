@@ -48,7 +48,38 @@ Created Expo configuration file with:
 - Asset configuration
 - Splash screen and icon settings
 
-### 3. Entry Point
+### 3. Android Native Configuration
+
+Updated Android native files to work with Expo autolinking:
+
+#### settings.gradle
+- Removed React Native CLI plugin management
+- Added Expo autolinking: `apply from: expo/scripts/autolinking.gradle`
+- Simplified to use `useExpoModules()`
+
+#### build.gradle (root)
+- Removed React Native gradle plugin dependency
+- Updated node_modules paths for monorepo structure
+- Kept Kotlin and Android gradle plugin
+
+#### app/build.gradle
+- Replaced `com.facebook.react` plugin with Expo autolinking
+- Updated to use Expo modules: `useExpoModules()`
+- Changed applicationId to match app.json: `com.mquran.app`
+- Kept namespace as `com.mquran` to match existing package structure
+
+#### MainActivity.kt
+- Added `ReactActivityDelegateWrapper` import
+- Wrapped delegate with Expo's wrapper for proper module initialization
+- Preserved existing component name and architecture settings
+
+#### MainApplication.kt
+- Wrapped ReactNativeHost with `ReactNativeHostWrapper`
+- Added `ApplicationLifecycleDispatcher.onApplicationCreate()` call
+- Preserved custom `QuranASRPackage` integration
+- Maintained all existing React Native and architecture settings
+
+### 4. Entry Point
 
 Created `App.tsx` at the root of the mobile directory that imports from `src/App.tsx`:
 ```typescript
@@ -56,7 +87,7 @@ import App from './src/App';
 export default App;
 ```
 
-### 4. Scripts
+### 5. Scripts
 
 Updated package.json scripts:
 - `start`: Changed from custom metro script to `expo start`
@@ -64,7 +95,7 @@ Updated package.json scripts:
 - `ios`: Changed from `react-native run-ios` to `expo run:ios`
 - `web`: Added `expo start --web` for web support
 
-### 5. Removed Files
+### 6. Removed Files
 
 - Removed `scripts/start-metro.js` (no longer needed)
 - Removed custom Metro launcher scripts
